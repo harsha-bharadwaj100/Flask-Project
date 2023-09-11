@@ -1,3 +1,4 @@
+import random
 from time import sleep
 from flask import Flask, redirect, url_for, render_template
 import pyautogui as pg
@@ -11,11 +12,11 @@ def home():
     return render_template("index.html")
 
 # @app.route("/<name>")
-# def user(name, k):
+# def user(name, k):#document.querySelector("#para")//*[@id="para"]//*[@id="para"]/html/body/div/p[3]/html/body/div/p[2]
 #     return render_template("user.html", content=name)
 print("Done!")
 
-@app.route("/Damn it's him/hrthjtr")
+@app.route(f"/Damn it's him/{random.random()}")
 def specialUser():
     return render_template("user.html", content="Holy Admin!")
     
