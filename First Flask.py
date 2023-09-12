@@ -1,6 +1,6 @@
 import random
 from time import sleep
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 import pyautogui as pg
 import webbrowser as wb
 
@@ -15,6 +15,10 @@ def home():
 # def user(name, k):#document.querySelector("#para")//*[@id="para"]//*[@id="para"]/html/body/div/p[3]/html/body/div/p[2]
 #     return render_template("user.html", content=name)
 print("Done!")
+@app.route("/search", methods=['GET'])
+def search():
+    args = request.args
+    return str(args.to_dict()) + str(args.get("query"))
 
 @app.route(f"/Damn it's him/{random.random()}")
 def specialUser():
