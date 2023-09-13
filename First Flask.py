@@ -11,9 +11,12 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-# @app.route("/<name>")
-# def user(name, k):#document.querySelector("#para")//*[@id="para"]//*[@id="para"]/html/body/div/p[3]/html/body/div/p[2]
-#     return render_template("user.html", content=name)
+@app.route("/<name>")
+@app.route("/<name>/")
+@app.route("/<name>/<surname>")
+def user(name, surname=""):#document.querySelector("#para")//*[@id="para"]/html/body/div/p[3]/html/body/div/p[2]
+    return render_template("user.html", content=F"{name} & {surname}")
+
 print("Done!")
 @app.route("/search", methods=['GET'])
 def search():
@@ -24,10 +27,13 @@ def search():
 def specialUser():
     return render_template("user.html", content="Holy Admin!")
     
-@app.route("/admin")
+@app.route("/admin/")
 def admin():
     return redirect(url_for("specialUser"))
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
 if __name__ == "__main__":
     # wb.open("http://127.0.0.1:5000")
     app.run(debug=True)

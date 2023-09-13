@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page of {{content}}</title>
-</head>
-<body>
-    <h1>Welcome to the page of {{content}}!</h1>
-    <div>
-        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sit inventore aut officia, deleniti quae autem in adipisci nemo quos cupiditate possimus repudiandae vitae dignissimos.</p>
-        <p id="para">Inventore temporibus doloremque fuga voluptas placeat. Nulla exercitationem, optio harum qui est adipisci assumenda accusantium tenetur atque nihil asperiores repellat molestiae et in tempora iure?</p>
-        <p id="para">Laudantium quibusdam expedita porro reprehenderit molestias. Soluta quo dolores cum quisquam rem accusamus accusantium, et modi ea velit, facilis exercitationem eum temporibus, molestias debitis ipsam.</p>
-    </div>
-    <!-- used a flask variable! -->
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block contents %}
+<h1>Welcome to the page of {{content}}!</h1>
+<div>
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sit inventore aut officia, deleniti quae autem in adipisci nemo quos cupiditate possimus repudiandae vitae dignissimos.</p>
+    <p id="para">Inventore temporibus doloremque fuga voluptas placeat. Nulla exercitationem, optio harum qui est adipisci assumenda accusantium tenetur atque nihil asperiores repellat molestiae et in tempora iure?</p>
+    <p id="para">Laudantium quibusdam expedita porro reprehenderit molestias. Soluta quo dolores cum quisquam rem accusamus accusantium, et modi ea velit, facilis exercitationem eum temporibus, molestias debitis ipsam.</p>
+</div>
+<div>
+    {% for x in range(2, 4) %}
+        <li> {{x, x**2}} </li>
+    {% endfor %}
+</div>
+<!-- used a flask variable! -->
+{% endblock contents %}
