@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    {% if content %}
-    <title>WAJ - {{content}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block headContents %}
+        
+    {% endblock headContents %}
+    {% if title %}
+    <title>WAJ - {{title}}</title>
     {% else %}
         <title>WAJ</title>
     {% endif %}

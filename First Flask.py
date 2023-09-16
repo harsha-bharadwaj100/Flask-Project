@@ -23,6 +23,10 @@ def search():
     args = request.args
     return str(args.to_dict()) + str(args.get("query"))
 
+@app.route("/JS Learn")
+def test():
+    return render_template("test.html")
+
 @app.route(f"/Damn it's him/{random.random()}")
 def specialUser():
     return render_template("user.html", content="Holy Admin!")
