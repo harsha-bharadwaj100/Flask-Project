@@ -3,7 +3,7 @@ from time import sleep
 from flask import Flask, redirect, url_for, render_template, request
 import pyautogui as pg
 import webbrowser as wb
-import pathlib
+
 app = Flask(__name__)
 
 @app.route("/home")
