@@ -23,9 +23,9 @@ def search():
     args = request.args
     return str(args.to_dict()) + str(args.get("query"))
 
-@app.route("/JS Learn")
-def test():
-    return render_template("test.html")
+@app.route("/data")
+def dataSend():
+    return "DATA!!"
 
 @app.route(f"/Damn it's him/{random.random()}")
 def specialUser():
