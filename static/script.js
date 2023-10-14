@@ -28,7 +28,7 @@ function manager() {
     console.log("Running MAnager...")
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/info');
-    // xhr.getResponseHeader('Content-type');
+    xhr.setRequestHeader('Content-type', 'application/json');
     xhr.onprogress = function () {
         console.log("Onprogress");
     }
@@ -44,6 +44,6 @@ function manager() {
     //         console.log("Some error occured")
     // }
     params = {"name":"text", "salary":"123", "age":"19", "list":["a", "b", "c"]}
-    xhr.send(params);
+    xhr.send(JSON.stringify(params));
     console.log("Completed!")
 }
