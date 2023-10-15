@@ -31,6 +31,7 @@ def dataSend():
 def infoRecieve():
     jsonFile = request.get_json(cache=True)
     print(jsonFile)
+    print(jsonFile['name'], jsonFile['age'])
     return "jsonFile"
 
 @app.route(f"/Damn it's him/{random.random()}")
