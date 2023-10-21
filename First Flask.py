@@ -23,6 +23,17 @@ def search():
     args = request.args
     return str(args.to_dict()) + str(args.get("query"))
 
+@app.route("/data")
+def dataSend():
+    return "DATA!!"
+
+@app.route("/info", methods=['POST'])
+def infoRecieve():
+    jsonFile = request.get_json(cache=True)
+    print(jsonFile)
+    print(jsonFile['name'], jsonFile['age'])
+    return "jsonFile"
+
 @app.route(f"/Damn it's him/{random.random()}")
 def specialUser():
     return render_template("user.html", content="Holy Admin!")
