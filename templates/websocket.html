@@ -8,19 +8,25 @@
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"></script>    
     <script>
-        socket = io()
+        var socket = io();
         socket.connect('http://127.0.0.1:5000/')
-        socket.on('connect', function(){
-            socket.send('Hello Server!')
-        })
-        socket.on('message', function(msg){
-            console.log(msg);
-            socket.send('Hello Server!')
-        })
+        socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+    function foo(){
+        console.log("foo was called!");
+    }
+    function emitter(){
+        socket.emit('ready', "Come on!")
+    }
+    socket.on('called', function(funcName){
+        eval(funcName + "();")
+    })
     </script>
     <title>Websockets</title>
 </head>
 <body>
     <h1>Message: </h1>
+    <button type="button" onclick="emitter()">Emit!</button>
 </body>
 </html>
