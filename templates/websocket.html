@@ -8,6 +8,7 @@
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"></script>    
     <script>
+        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
         var socket = io();
         socket.connect('http://127.0.0.1:5000/')
         socket.on('connect', function() {
@@ -19,7 +20,10 @@
     function emitter(){
         socket.emit('ready', "Come on!")
     }
-    socket.on('called', function(funcName){
+    socket.on('called', async function(funcName){
+        for(let i=0; i<25000; i++){
+                console.log('Run!');
+            }
         eval(funcName + "();")
     })
     </script>
