@@ -7,26 +7,7 @@
     integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" 
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"></script>    
-    <script>
-        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-        var socket = io();
-        socket.connect('http://127.0.0.1:5000/')
-        socket.on('connect', function() {
-        socket.emit('my event', {data: 'I\'m connected!'});
-    });
-    function foo(){
-        console.log("foo was called!");
-    }
-    function emitter(){
-        socket.emit('ready', "Come on!")
-    }
-    socket.on('called', async function(funcName){
-        for(let i=0; i<25000; i++){
-                console.log('Run!');
-            }
-        eval(funcName + "();")
-    })
-    </script>
+    <script type="text/javascript" src="static/socket test.js"></script>
     <title>Websockets</title>
 </head>
 <body>
